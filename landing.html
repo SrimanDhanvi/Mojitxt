@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MojiText</title>
+    <link rel="icon" href="Images/MojitxtSmallLOGO.png">
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the bluish-green background and font */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* A nice bluish-green gradient background for the whole page */
+            background: linear-gradient(to bottom right, #a7f3d0, #6ee7b7, #34d399, #10b981); /* Shades of light green/teal */
+            min-height: 100vh; /* Ensure it covers the whole viewport height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Adjust to allow header at top */
+            padding: 1rem; /* Padding for small screens */
+        }
+        /* Override default Tailwind container padding for full-width content */
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header (Copied from About Page, adjusted for full width) --><nav class="w-full max-w-7xl flex justify-between items-center py-4 px-6 mb-12 bg-white shadow-lg rounded-xl border border-green-100">
+        
+        <!-- Logo Placeholder (Left) --><a href="landing.html" class="flex items-center space-x-2">
+            <!-- Use this 'img' tag to replace with your actual logo later --><img src="Images/MojitxtSmallLOGO.png" alt="MojiText Logo Placeholder" class="h-8 w-auto rounded-md">
+            <span class="text-xl font-bold text-green-600 hidden sm:inline">MojiText</span>
+        </a>
+
+        <!-- Nav Links (Right) - 'Home' or similar would typically be active, but none for landing --><div class="flex space-x-4 sm:space-x-8 text-sm sm:text-base">
+            <a href="about.html" class="text-gray-600 hover:text-green-600 transition">About</a>
+            <a href="privacy.html" class="text-gray-600 hover:text-green-600 transition">Privacy</a>
+            <a href="contact.html" class="text-gray-600 hover:text-green-600 transition">Contact</a>
+            <a href="terms.html" class="text-gray-600 hover:text-green-600 transition">Terms</a>
+        </div>
+    </nav>
+
+    <!-- Main Content - Centered for the Landing Page --><main class="flex-grow flex flex-col items-center justify-center text-center p-4 sm:p-8 w-full max-w-3xl">
+        
+        <!-- Main Heading --><h1 class="text-6xl sm:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6 drop-shadow-lg">
+            World-wide Emoji
+        </h1>
+
+        <!-- Sub-text / Welcome Message --><p class="text-2xl sm:text-3xl font-medium text-white max-w-2xl mb-12 leading-relaxed drop-shadow-md">
+            🌍 Welcome to the World Wide Emoji Forum! 🎉 Share 😂, 🥳, 😢, and everything in between—because here, every emoji tells a story. Let your feelings run wild, one tiny icon at a time! 💫
+        </p>
+
+        <!-- Link to Chat --><a href="index.html" class="inline-flex items-center justify-center px-10 py-5 border border-transparent text-xl font-bold rounded-full shadow-lg text-green-800 bg-white hover:bg-gray-100 transition-transform transform hover:scale-105 duration-300 ease-in-out group">
+            Start Chatting Now!
+            <svg class="ml-2 -mr-1 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+
+    </main>
+
+</body>
+</html>

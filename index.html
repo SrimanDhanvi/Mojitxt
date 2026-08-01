@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MojiText</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Images/MojitxtSmallLOGO.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <script type="module" src="FireBase.js"></script>
+
+         <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to the Ephemeral Emoji Forum</h2>
+            <ul>
+                <li>Chat with Random People — No Sign-Up</li>
+                <li>Join the global conversation in seconds. It's free, instant, and anonymous.</li>
+            </ul>
+            <p><strong>Rules:</strong></p>
+            <ul>
+                <li>Only emojis are allowed in posts.</li>
+                <li>Messages are strictly ephemeral and will disappear after 30 seconds.</li>
+                <li>Be respectful and have fun!</li>
+                <li><a style="color: white;" href="privacy.html">Privacy Policy</a> & <a style="color: white;" href="terms.html">Terms of Services</a></li>
+            </ul>
+            <button id="accept-rules">Accept and Enter</button>
+        </div>
+    </div>
+
+    <header id="forum-header">
+        <div id="logo-container">
+            <a href="landing.html"><img src="Images/MojitxtSmallLOGO.png" alt="MojiText Logo" id="Mojitext-logo"></a>
+        </div>
+        <button id="share-button">
+           <i class="fas fa-share-alt"></i> Share
+        </button>
+    </header>
+
+    <div id="forum-container">
+
+        <div id="top-shade"></div>
+
+        <div id="messages-container">
+            </div>
+
+        <div id="input-area">
+            <input type="text" id="message-input" placeholder="Type your emoji message...">
+            <button id="post-button">Post</button>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,313 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Clean, modern font */
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling, keeps the futuristic terminal look */
+}
+
+/* 2. Background: Futuristic Gradient Blend */
+body {
+    background: linear-gradient(135deg, #052e40 0%, #115d50 50%, #148259 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Modal Styling (Prevents interaction until accepted) */
+/* (Modal styles remain the same) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    z-index: 1000; /* Ensure it's on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+    opacity: 0;
+    pointer-events: none; /* Disable interaction when hidden */
+}
+
+.modal-content {
+    background-color: #0b3a4a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(20, 240, 180, 0.5); /* Sci-fi glow */
+    text-align: center;
+    max-width: 400px;
+    border: 1px solid #148259;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #4CAF50; /* Accent color */
+}
+
+.modal-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.modal-content li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #0c4d5f;
+}
+
+#accept-rules {
+    background-color: #1976d2; /* Original blue color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#accept-rules:hover {
+    background-color: #135ba1;
+}
+
+#accept-rules:active {
+    transform: scale(0.98);
+}
+
+
+/* Main Forum Layout */
+#forum-container {
+    width: 90%;
+    max-width: 600px;
+    height: 85%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3); /* Slight transparency */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px; /* Adjust padding to give space for header */
+    overflow: hidden; /* Crucial for the disappearing effect */
+}
+
+/* NEW: Header Styling */
+#forum-header {
+    width: 90%;
+    max-width: 600px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px; /* Adjust padding to give space for header */
+
+}
+
+#logo-container {
+    /* Align logo to the left as requested */
+    position: relative;
+    margin-right: auto;
+}
+
+#share-button {
+    /* margin-left: auto; is an alternative to 'justify-content: space-between;' 
+       if you have more elements, but space-between is cleaner here. */
+    background-color: rgba(0, 0, 0, 0.0);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#Mojitext-logo {
+    position: relative;
+    height: 32px; /* Adjust size as needed */
+    width: auto;
+    /* Optional: Add a subtle glow/shadow to the logo */
+    filter: drop-shadow(0 0 5px #148259);
+    z-index: 71; 
+}
+
+/* If using text logo: */
+#Mojitext-logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4CAF50; /* Futuristic accent color */
+    letter-spacing: 2px;
+}
+
+/* 4. Top Black Shaded Area */
+#top-shade {
+    position: absolute;
+    /* Adjusted top to start just below the header */
+    top: -10px; /* Adjust based on header height (approx 30px img + 15px padding * 2 = 60px) */
+    left: 0;
+    width: 100%;
+    height: 100px; /* Area where messages disappear */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0) 100%);
+    z-index: 60; /* Above messages but below the header */
+    pointer-events: none;
+}
+
+/* Message Display Container */
+#messages-container {
+    position: relative; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Messages start at the bottom */
+    gap: 10px;
+    padding: 10px;
+    overflow-y: auto; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* Pushing the container up to account for the header padding */
+    z-index: 10;
+}
+
+/* Hide scrollbar (Chrome, Safari, Opera) */
+#messages-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Message Styling */
+.message {
+    /* (Message styles remain the same) */
+    margin: 0;
+    background: #1976d2;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+
+    word-wrap: break-word; /* Older standard, good for compatibility */
+    overflow-wrap: break-word; /* Modern standard, forces line breaks */
+
+    /* Ensure the text is allowed to wrap */
+    white-space: normal;
+
+    align-self: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 10px rgba(25, 118, 210, 0.7);
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    animation: pop-in 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 1s linear, opacity 1s linear, margin-top 1s linear;
+    z-index: 10;
+}
+
+/* Styling for messages from OTHER users (right-aligned, purple color) */
+.message.other-user {
+    /* 1. Alignment: Push message to the right */
+    align-self: flex-end; 
+    
+    /* 2. Color: New purple background */
+    background: #902cc6; 
+    
+    /* 3. Shadow: Update the glow to match the new color */
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.4), 
+        0 0 10px rgba(144, 44, 198, 0.7); /* Using the new color's RGB equivalent (144, 44, 198) */
+        
+    /* 4. Text alignment (optional, but good practice for right-aligned bubbles) */
+    text-align: left; 
+}
+
+/* Styling for the error/feedback message */
+.error-message {
+    /* Red background for failure */
+    background-color: #d32f2f; 
+    
+    /* Stronger, more visible text */
+    color: #ffffff;
+    font-weight: bold;
+
+    /* A red/warning shadow */
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.4), 
+        0 0 10px rgba(211, 47, 47, 0.8);
+        
+    /* Center it slightly for better visibility as a system message */
+    align-self: center;
+    max-width: 90%; 
+}
+
+/* Optional: Style the initial 'Posting...' message if desired */
+.feedback-message {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Pop-in animation (Remains the same) */
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Class applied by JS for upward disappearance animation (Remains the same) */
+.message.disappearing {
+    transform: translateY(-100px);
+    opacity: 0;
+    margin-top: -50px;
+}
+
+
+/* 3. Message Input Box (Remains the same) */
+#input-area {
+    padding: 10px 0;
+    display: flex;
+    border-top: 1px solid #148259;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #148259;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+#message-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+#post-button {
+    background-color: #148259;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#post-button:hover {
+    background-color: #116a4b;
+}
+
+#post-button:active {
+    transform: scale(0.98);
+}

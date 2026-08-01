@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "messages": {
+      ".read": "now < 1767298800000",
+      ".write": "now < 1767298800000",
+      
+      "$messageId": {
+        ".validate": "newData.hasChildren(['content', 'timestamp', 'senderId']) && newData.child('content').isString()",
+
+        "content": {
+          ".validate": "newData.val().matches(/^[^a-zA-Z0-9!@#\\$%\\^&\\*\\(\\)_\\+=\\-\\[\\]{};:'\"\\\\|,<.>\\/?`~]*$/)"
+  }
+      }
+    },
+    
+    ".read": false,
+    ".write": false
+  }
+}

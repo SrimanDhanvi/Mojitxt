@@ -1,0 +1,17 @@
+# Firebase CLI cache & build artifacts
+.firebase/
+
+# Firebase debug logs
+*-debug.log
+firebase-debug.log*
+
+# OS-generated files (good practice)
+.DS_Store
+Thumbs.db
+
+# Environment variables / API keys (if you add them later)
+.env
+.env.local
+
+# Security credentials
+FireBase.js

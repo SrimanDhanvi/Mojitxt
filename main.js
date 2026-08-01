@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 2. *** NEW MODULAR FIREBASE PUSH CODE ***
             push(messagesRef, { // <-- Use the imported 'push' function
                 content: text,
-                timestamp: Date.now(),
+                timestamp: serverTimestamp(),
                 senderId: currentUserId
             })
             .then(() => {
